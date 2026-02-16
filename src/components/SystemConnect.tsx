@@ -195,10 +195,11 @@ export default function SystemConnect() {
         } catch (error: any) {
             console.error("Chat Error Detailed:", error);
 
-            let displayMessage = "Disculpa, audiófilo. He tenido una pequeña interferencia técnica. Probemos de nuevo en un momento.";
-
+            let displayMessage = "";
             if (error.message === "QUOTA_EXCEEDED") {
                 displayMessage = "⚠️ **Límite de Consultas Alcanzado**\n\nEl asesor está atendiendo a muchos audiófilos en este momento. Por favor, espera unos segundos o intenta más tarde.";
+            } else {
+                displayMessage = `❌ **Error de Conexión Detallado:**\n\n${error.message}\n\nPor favor, verifica la configuración de la llaves de API en Vercel. Asegúrate de que la variable se llame GEMINI_API_KEY.`;
             }
 
             setChatMessages(prev => [...prev, {

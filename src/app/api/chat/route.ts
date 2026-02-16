@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
     const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey) {
-        return NextResponse.json({ error: "API Key no configurada." }, { status: 500 });
+        return new NextResponse("SERVER_ERROR: API Key no encontrada en el entorno del servidor.", { status: 500 });
     }
 
     try {
@@ -70,9 +70,12 @@ export async function POST(req: NextRequest) {
         return new NextResponse(text);
     } catch (error: any) {
         console.error("Chat API Error:", error);
+        const keyPrefix = apiKey ? apiKey.substring(0, 4) : "MISSING";
+        const keySuffix = apiKey && apiKey.length > 8 ? apiKey.substring(apiKey.length - 4) : "****";
+
         if (error.message?.includes("429") || error.message?.includes("quota")) {
             return new NextResponse("QUOTA_EXCEEDED", { status: 429 });
         }
-        return new NextResponse(`SERVER_ERROR: ${error.message}`, { status: 500 });
+        return new NextResponse(`SERVER_ERROR (Key: ${keyPrefix}...${keySuffix}): ${error.message}`, { status: 500 });
     }
 }
