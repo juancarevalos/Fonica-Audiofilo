@@ -199,8 +199,6 @@ export default function SystemConnect() {
 
             if (error.message === "QUOTA_EXCEEDED") {
                 displayMessage = "⚠️ **Límite de Consultas Alcanzado**\n\nEl asesor está atendiendo a muchos audiófilos en este momento. Por favor, espera unos segundos o intenta más tarde.";
-            } else {
-                displayMessage = `⚠️ **Error de Conexión:** ${error.message}\n\nPor favor, verifica que la API Key en Vercel sea la correcta y que el modelo gemini-2.0-flash esté activo.`;
             }
 
             setChatMessages(prev => [...prev, {
