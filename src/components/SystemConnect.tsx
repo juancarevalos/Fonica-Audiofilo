@@ -577,20 +577,7 @@ export default function SystemConnect() {
                 {/* Chat Input Area (only for chat) */}
                 {!isManualMode && (
                     <div className="p-4 md:p-6 space-y-4 bg-[#1a1a1a]/80 backdrop-blur-md border-t border-[#404040]">
-                        {/* Quick Suggestions */}
-                        {chatMessages.length < 3 && (
-                            <div className="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide">
-                                {suggestions.map((s) => (
-                                    <button
-                                        key={s}
-                                        onClick={() => sendMessage(s)}
-                                        className="whitespace-nowrap px-4 py-2 bg-[#2d2d2d] border border-[#404040] rounded-full text-[11px] font-bold text-white hover:border-[#FFD700] hover:text-[#FFD700] transition-all"
-                                    >
-                                        {s}
-                                    </button>
-                                ))}
-                            </div>
-                        )}
+
 
                         <div className="relative flex items-end space-x-2">
                             <div className="flex-1 relative">
@@ -604,8 +591,8 @@ export default function SystemConnect() {
                                         }
                                     }}
                                     rows={1}
-                                    placeholder="Haz una consulta de nivel experto..."
-                                    className="w-full bg-[#252525] border border-[#404040] rounded-xl px-4 py-4 pr-14 text-sm md:text-base text-white focus:outline-none focus:border-[#FFD700] transition-all placeholder:text-gray-500 resize-none min-h-[56px] max-h-32"
+                                    placeholder="Haz tu consulta"
+                                    className="w-full bg-[#252525] border border-white rounded-xl px-4 py-4 pr-14 text-sm md:text-base text-white focus:outline-none focus:border-white transition-all placeholder:text-white/70 resize-none min-h-[56px] max-h-32"
                                 />
                                 <button
                                     onClick={() => sendMessage()}
