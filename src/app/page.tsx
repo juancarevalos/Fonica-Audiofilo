@@ -162,7 +162,7 @@ export default function Home() {
                             </div>
 
                             {/* Main Content Areas in Carousels/Rows */}
-                            <div className="max-w-7xl mx-auto px-6 -mt-16 md:-mt-20 relative z-30 space-y-16 pb-20 w-full">
+                            <div className="max-w-7xl mx-auto px-6 mt-8 md:mt-12 relative z-30 space-y-16 pb-20 w-full">
                                 {/* Upload/Identificar Section */}
                                 <section id="upload-section" className="space-y-6">
                                     <h2 className="text-2xl font-bold text-white">Identificar Equipos</h2>
