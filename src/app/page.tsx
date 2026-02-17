@@ -136,7 +136,7 @@ export default function Home() {
                     {activeTab === "advisor" && (
                         <div className="flex flex-col">
                             {/* Hero Section - Netflix Style */}
-                            <div className="relative h-[50vh] min-h-[400px] w-full overflow-hidden flex items-center pt-24">
+                            <div className="relative h-[40vh] min-h-[300px] w-full overflow-hidden flex items-center pt-24">
                                 {/* Background Image placeholder - Premium Hi-Fi */}
                                 <div className="absolute inset-0 z-0">
                                     <div className="absolute inset-0 bg-gradient-to-t from-netflix-black via-netflix-black/40 to-transparent z-10" />
@@ -158,20 +158,11 @@ export default function Home() {
                                     <p className="text-lg text-netflix-text max-w-xl font-medium opacity-80 leading-relaxed">
                                         Experiencia audiófila definitiva. Identifica, optimiza y descubre la verdadera alma de tu sistema de sonido.
                                     </p>
-                                    <div className="flex space-x-4 pt-4">
-                                        <button
-                                            onClick={() => document.getElementById('upload-section')?.scrollIntoView({ behavior: 'smooth' })}
-                                            className="px-8 py-3 bg-white text-black font-bold rounded flex items-center space-x-2 hover:bg-white/80 transition-all"
-                                        >
-                                            <Zap className="fill-black" />
-                                            <span>Comenzar Análisis Gratis</span>
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
 
                             {/* Main Content Areas in Carousels/Rows */}
-                            <div className="max-w-7xl mx-auto px-6 -mt-10 relative z-30 space-y-20 pb-20 w-full">
+                            <div className="max-w-7xl mx-auto px-6 -mt-16 md:-mt-20 relative z-30 space-y-16 pb-20 w-full">
                                 {/* Upload/Identificar Section */}
                                 <section id="upload-section" className="space-y-6">
                                     <h2 className="text-2xl font-bold text-white">Identificar Equipos</h2>
