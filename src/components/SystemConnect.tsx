@@ -591,7 +591,7 @@ export default function SystemConnect() {
                                         }
                                     }}
                                     rows={1}
-                                    placeholder="Haz tu consulta"
+                                    placeholder="Haz tu consulta..."
                                     className="w-full bg-[#252525] border border-white rounded-xl px-4 py-4 pr-14 text-sm md:text-base text-white focus:outline-none focus:border-white transition-all placeholder:text-white/70 resize-none min-h-[56px] max-h-32"
                                 />
                                 <button
