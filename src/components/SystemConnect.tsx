@@ -270,7 +270,7 @@ export default function SystemConnect() {
                     <button
                         onClick={() => setIsManualMode(false)}
                         className={clsx(
-                            "flex-1 py-4 text-[11px] font-bold uppercase tracking-[0.3em] transition-all",
+                            "flex-1 py-4 text-[10px] md:text-[11px] font-bold uppercase tracking-wider md:tracking-[0.3em] transition-all",
                             !isManualMode ? "text-[#FFD700] border-b-2 border-[#FFD700] bg-[#1a1a1a]" : "text-netflix-muted hover:text-white"
                         )}
                     >
@@ -279,7 +279,7 @@ export default function SystemConnect() {
                     <button
                         onClick={() => setIsManualMode(true)}
                         className={clsx(
-                            "flex-1 py-4 text-[11px] font-bold uppercase tracking-[0.3em] transition-all",
+                            "flex-1 py-4 text-[10px] md:text-[11px] font-bold uppercase tracking-wider md:tracking-[0.3em] transition-all",
                             isManualMode ? "text-[#FFD700] border-b-2 border-[#FFD700] bg-[#1a1a1a]" : "text-netflix-muted hover:text-white"
                         )}
                     >

@@ -68,8 +68,8 @@ export default function Home() {
         <main className="min-h-screen bg-netflix-black text-white selection:bg-netflix-red">
             {/* Global Navigation - Netflix Style */}
             <nav className="fixed top-0 left-0 right-0 z-[100] netflix-gradient h-20 transition-all duration-300">
-                <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-                    <div className="flex items-center space-x-8">
+                <div className="max-w-7xl mx-auto px-4 md:px-6 h-full flex items-center justify-between">
+                    <div className="flex items-center space-x-3 md:space-x-8">
                         {/* Logo / Home Link */}
                         <div
                             className="flex items-center cursor-pointer group"
@@ -78,11 +78,11 @@ export default function Home() {
                                 setAnalysisData(null);
                             }}
                         >
-                            <span className="text-3xl font-black text-netflix-red tracking-tighter leading-none uppercase">Fónica</span>
+                            <span className="text-2xl md:text-3xl font-black text-netflix-red tracking-tighter leading-none uppercase">Fónica</span>
                         </div>
 
                         {/* Navigation Links */}
-                        <div className="hidden md:flex items-center space-x-6">
+                        <div className="flex items-center space-x-4 md:space-x-6">
                             {[
                                 { id: "advisor", label: "Identificar", icon: Zap },
                                 { id: "connect", label: "Asesoría", icon: MessageCircle },
@@ -95,11 +95,12 @@ export default function Home() {
                                         setAnalysisData(null);
                                     }}
                                     className={clsx(
-                                        "text-sm font-medium transition-all hover:text-netflix-muted",
+                                        "flex flex-col md:flex-row items-center md:space-x-2 transition-all hover:text-netflix-muted",
                                         activeTab === item.id ? "text-white font-bold" : "text-white/80"
                                     )}
                                 >
-                                    <span>{item.label}</span>
+                                    <item.icon className="w-5 h-5 md:w-4 md:h-4 mb-0.5 md:mb-0" />
+                                    <span className="text-[10px] md:text-sm font-medium">{item.label}</span>
                                 </button>
                             ))}
                         </div>
