@@ -5,7 +5,8 @@ export async function POST(req: NextRequest) {
     const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey) {
-        return new NextResponse("SERVER_ERROR: API Key no encontrada en el entorno del servidor.", { status: 500 });
+        const availableVars = Object.keys(process.env).join(", ");
+        return new NextResponse(`SERVER_ERROR: API Key no encontrada. Variables disponibles: [${availableVars}]`, { status: 500 });
     }
 
     try {
