@@ -554,7 +554,7 @@ export default function SystemConnect() {
                                     <button
                                         type="submit"
                                         disabled={isAdvisorLoading}
-                                        className="w-full py-4 bg-[#FFD700] text-black font-bold uppercase tracking-[0.2em] rounded-lg hover:shadow-[0_0_20px_rgba(255,215,0,0.4)] disabled:opacity-50 transition-all flex items-center justify-center space-x-3"
+                                        className="w-full py-3 bg-white text-black font-bold uppercase tracking-[0.2em] rounded-lg hover:bg-white/90 disabled:opacity-50 transition-all flex items-center justify-center space-x-3"
                                     >
                                         {isAdvisorLoading ? (
                                             <>
