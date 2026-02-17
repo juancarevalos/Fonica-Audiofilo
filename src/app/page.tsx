@@ -24,7 +24,6 @@ export default function Home() {
     // UI States
     const [showAuth, setShowAuth] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
-    const [showPremium, setShowPremium] = useState(false);
 
     /* Removing automatic auth trigger - only shows on manual click now */
     /*
@@ -177,7 +176,7 @@ export default function Home() {
                                             </div>
                                         </div>
                                         <div className="lg:col-span-4">
-                                            <PremiumModule onUpgrade={() => setShowPremium(true)} />
+                                            <PremiumModule onUpgrade={() => setShowAuth(true)} />
                                         </div>
                                     </div>
                                 </section>
@@ -208,79 +207,16 @@ export default function Home() {
                             setAnalysisData(null);
                             setErrorMsg(null);
                         }}
-                        onUpgrade={() => setShowPremium(true)}
+                        onUpgrade={() => setShowAuth(true)}
                     />
                 </div>
             )}
 
             {/* Modals - Netflix style */}
             {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
-            {showSettings && <SettingsModal onClose={() => setShowSettings(false)} onOpenPremium={() => setShowPremium(true)} />}
+            {showSettings && <SettingsModal onClose={() => setShowSettings(false)} onOpenPremium={() => setShowAuth(true)} />}
 
-            {/* Premium Upgrade Modal */}
-            {showPremium && (
-                <div className="fixed inset-0 z-[300] flex items-center justify-center p-4">
-                    <div className="absolute inset-0 bg-[#0a0a0a]/98 backdrop-blur-md" onClick={() => setShowPremium(false)}></div>
-                    <div className="relative bg-[#0f0f0f] border border-[#2a2a2a] p-12 rounded-[48px] max-w-lg w-full text-center space-y-10 animate-in zoom-in-95 duration-300 shadow-2xl">
-                        {/* Decorative Top Accent */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-32 bg-[#FFD700] rounded-b-full shadow-[0_0_20px_rgba(255,215,0,0.3)]"></div>
 
-                        <div className="w-24 h-24 bg-gradient-to-br from-[#FFD700] to-[#B8860B] rounded-3xl flex items-center justify-center mx-auto shadow-[0_0_50px_rgba(255,215,0,0.2)] transform -rotate-6">
-                            <Crown className="w-12 h-12 text-black" />
-                        </div>
-
-                        <div className="space-y-4">
-                            <h2 className="text-4xl font-serif font-black text-white leading-tight">Suscripción <span className="text-[#FFD700]">Maestro</span></h2>
-                            <p className="text-[#FFD700]/70 text-sm font-bold uppercase tracking-[0.2em]">Acceso de Élite Ilimitado</p>
-                        </div>
-
-                        <div className="bg-[#1a1a1a] rounded-[32px] p-8 space-y-6 border border-white/5 shadow-inner text-left">
-                            <p className="text-white/80 text-center text-sm font-medium">
-                                Confirmar membresía para desbloquear el máximo potencial de la IA por solo <span className="text-white font-black text-lg">$3 USD</span>/mes.
-                            </p>
-
-                            <div className="space-y-4 pt-2">
-                                <div className="flex items-start space-x-4">
-                                    <div className="p-1.5 bg-[#FFD700]/10 rounded-lg">
-                                        <Zap className="w-4 h-4 text-[#FFD700]" />
-                                    </div>
-                                    <p className="text-xs text-white/70 leading-relaxed"><span className="text-white font-bold">Consultas Ilimitadas:</span> Sin cuotas diarias en identificación y chat técnico.</p>
-                                </div>
-                                <div className="flex items-start space-x-4">
-                                    <div className="p-1.5 bg-[#FFD700]/10 rounded-lg">
-                                        <ShieldCheck className="w-4 h-4 text-[#FFD700]" />
-                                    </div>
-                                    <p className="text-xs text-white/70 leading-relaxed"><span className="text-white font-bold">Análisis Pro:</span> Acceso a esquemas de conexión y topologías complejas.</p>
-                                </div>
-                                <div className="flex items-start space-x-4">
-                                    <div className="p-1.5 bg-[#FFD700]/10 rounded-lg">
-                                        <Crown className="w-4 h-4 text-[#FFD700]" />
-                                    </div>
-                                    <p className="text-xs text-white/70 leading-relaxed"><span className="text-white font-bold">Sinergia VIP:</span> Recomendaciones personalizadas de cables y componentes.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="space-y-4">
-                            <button
-                                onClick={() => {
-                                    updateProfile({ isPremium: true });
-                                    setShowPremium(false);
-                                }}
-                                className="w-full py-5 bg-[#FFD700] text-black rounded-[32px] font-black uppercase text-xs tracking-[0.4em] hover:bg-white hover:shadow-2xl transition-all transform hover:-translate-y-1"
-                            >
-                                Confirmar y Activar
-                            </button>
-                            <button
-                                onClick={() => setShowPremium(false)}
-                                className="text-[10px] font-black uppercase tracking-[0.5em] text-white/20 hover:text-white transition-all"
-                            >
-                                Quizás más tarde
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
         </main>
     );
 }

@@ -6,6 +6,7 @@ interface UserProfile {
     name: string;
     email: string;
     country: string;
+    city: string; // Added city
     phone: string;
     isPremium: boolean;
     avatar?: string;
