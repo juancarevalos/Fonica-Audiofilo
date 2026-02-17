@@ -29,28 +29,42 @@ export default function Dashboard({ data, onReset, onUpgrade }: DashboardProps) 
         setIsExporting(true);
 
         try {
+            // Force a desktop-like width for the capture to avoid mobile layout compression
+            const captureWidth = 1200;
+            const originalStyle = dashboardRef.current.style.width;
+            dashboardRef.current.style.width = `${captureWidth}px`;
+
             const canvas = await html2canvas(dashboardRef.current, {
-                scale: 2,
-                backgroundColor: "#050505", // Deep Netflix Black
+                scale: window.innerWidth < 768 ? 1.5 : 2,
+                backgroundColor: "#050505",
                 logging: false,
                 useCORS: true,
+                width: captureWidth,
+                windowWidth: captureWidth,
                 onclone: (clonedDoc: Document) => {
                     const buttons = clonedDoc.querySelector('.action-buttons');
                     if (buttons) (buttons as HTMLElement).style.display = 'none';
+
+                    // Ensure the cloned element also has the fixed width
+                    const clonedTarget = clonedDoc.querySelector('[ref="dashboardRef"]') || clonedDoc.body.querySelector('div');
+                    if (clonedTarget) (clonedTarget as HTMLElement).style.width = `${captureWidth}px`;
                 }
             });
 
-            const imgData = canvas.toDataURL("image/png");
-            const pdf = new jsPDF("p", "mm", "a4");
-            const imgProps = pdf.getImageProperties(imgData);
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+            // Restore original style
+            dashboardRef.current.style.width = originalStyle;
 
-            pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-            pdf.save(`Ficha_Fonica_${user?.name?.replace(/\s+/g, '_') || "Premium"}_${data?.brand || "Equipo"}.pdf`);
+            const imgData = canvas.toDataURL("image/png", 0.9);
+            const pdf = new jsPDF("p", "mm", "a4");
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+            // If it's taller than one page, we could add pages, but usually these reports are single-page or short
+            pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight, undefined, 'FAST');
+            pdf.save(`Ficha_Fonica_${data?.brand || "Equipo"}_${new Date().getTime()}.pdf`);
         } catch (error) {
             console.error("PDF Export Error:", error);
-            alert("No se pudo generar el PDF. Revisa la consola.");
+            alert("Error al generar PDF. Intenta de nuevo.");
         } finally {
             setIsExporting(false);
         }

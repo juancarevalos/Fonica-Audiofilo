@@ -38,15 +38,24 @@ export default function SystemConnect() {
         }
 
         try {
+            const captureWidth = 800; // Optimal width for diagram export
+            const originalStyle = diagramRef.current.style.width;
+            diagramRef.current.style.width = `${captureWidth}px`;
+
             const canvas = await html2canvas(diagramRef.current, {
                 backgroundColor: '#121212',
-                scale: 3, // Higher scale for better quality
+                scale: window.innerWidth < 768 ? 2 : 3,
                 logging: false,
                 useCORS: true,
-                allowTaint: true
+                allowTaint: true,
+                width: captureWidth,
+                windowWidth: captureWidth
             });
 
-            const imgData = canvas.toDataURL('image/png');
+            // Restore style
+            diagramRef.current.style.width = originalStyle;
+
+            const imgData = canvas.toDataURL('image/png', 0.9);
             const pdf = new jsPDF('p', 'mm', 'a4');
             const pageWidth = pdf.internal.pageSize.getWidth();
             const pageHeight = pdf.internal.pageSize.getHeight();
@@ -69,7 +78,7 @@ export default function SystemConnect() {
             pdf.text("REPORTE TÉCNICO DE CONFIGURACIÓN", pageWidth / 2, 28, { align: "center" });
 
             // Add the diagram image
-            pdf.addImage(imgData, 'PNG', 0, 35, pageWidth, imgHeight);
+            pdf.addImage(imgData, 'PNG', 0, 35, pageWidth, imgHeight, undefined, 'FAST');
 
             // Footer
             const footerY = 35 + imgHeight + 10;
@@ -85,7 +94,7 @@ export default function SystemConnect() {
             pdf.save(`Fonica_Reporte_${new Date().toISOString().split('T')[0]}.pdf`);
         } catch (err) {
             console.error("PDF Export Error:", err);
-            alert("Error al generar el PDF. Asegúrate de que el esquema sea visible.");
+            alert("Error al generar el PDF. Revisa la visibilidad del esquema.");
         }
     };
 
