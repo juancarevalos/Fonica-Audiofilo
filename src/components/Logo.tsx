@@ -6,9 +6,9 @@ export default function Logo({ className = "w-10 h-10" }: { className?: string }
     return (
         <div className={`relative flex items-center justify-center group ${className}`}>
             {/* Ambient Glow */}
-            <div className="absolute inset-0 bg-netflix-red/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+            <div className="absolute inset-0 bg-fonica-blue/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
 
-            <div className="relative z-10 w-full h-full bg-gradient-to-br from-netflix-red via-netflix-red/90 to-netflix-red/80 flex items-center justify-center rounded-[20%] shadow-2xl shadow-netflix-red/30 transform group-hover:scale-105 transition-all duration-700 ease-out overflow-hidden">
+            <div className="relative z-10 w-full h-full bg-gradient-to-br from-fonica-blue via-fonica-blue-deep to-black flex items-center justify-center rounded-[20%] shadow-2xl shadow-fonica-blue/30 transform group-hover:scale-105 transition-all duration-700 ease-out overflow-hidden">
                 {/* SVG Symbol */}
                 <svg
                     viewBox="0 0 100 100"
@@ -32,8 +32,8 @@ export default function Logo({ className = "w-10 h-10" }: { className?: string }
                 <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/20 to-transparent"></div>
             </div>
             {/* Orbiting Ring */}
-            <div className="absolute inset-[-6px] border border-netflix-red/5 rounded-[22%] group-hover:inset-[-10px] group-hover:border-netflix-red/20 transition-all duration-1000"></div>
-            <div className="absolute inset-[-12px] border border-netflix-red/0 group-hover:border-netflix-red/5 rounded-full transition-all duration-1000 animate-[spin_20s_linear_infinite]"></div>
+            <div className="absolute inset-[-6px] border border-fonica-blue/10 rounded-[22%] group-hover:inset-[-10px] group-hover:border-fonica-blue/30 transition-all duration-1000"></div>
+            <div className="absolute inset-[-12px] border border-fonica-blue/5 group-hover:border-fonica-blue/10 rounded-full transition-all duration-1000 animate-[spin_20s_linear_infinite]"></div>
         </div>
     );
 }

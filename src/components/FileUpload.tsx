@@ -71,39 +71,39 @@ export default function FileUpload({ onUpload, isAnalyzing }: FileUploadProps) {
             className={cn(
                 "relative group cursor-pointer rounded-lg p-1 transition-all duration-700",
                 isDragging
-                    ? "bg-netflix-red/20 scale-[1.02]"
-                    : "bg-netflix-dark/50 border border-netflix-border/50 hover:border-netflix-red/30"
+                    ? "bg-fonica-blue/10 scale-[1.02]"
+                    : "bg-fonica-offwhite border border-fonica-border hover:border-fonica-blue/30 shadow-sm"
             )}
         >
             <div className={cn(
                 "p-12 border-2 border-dashed rounded-lg flex flex-col items-center justify-center space-y-6 text-center transition-all duration-500",
-                isDragging ? "border-netflix-red" : "border-white/5 group-hover:border-netflix-red/20"
+                isDragging ? "border-fonica-blue" : "border-black/5 group-hover:border-fonica-blue/20"
             )}>
                 {isAnalyzing ? (
                     <div className="space-y-6">
                         <div className="relative">
-                            <div className="w-20 h-20 border-t-2 border-netflix-red rounded-full animate-spin" />
-                            <Search className="absolute inset-0 m-auto w-6 h-6 text-netflix-red animate-pulse" />
+                            <div className="w-20 h-20 border-t-2 border-fonica-blue rounded-full animate-spin" />
+                            <Search className="absolute inset-0 m-auto w-6 h-6 text-fonica-blue animate-pulse" />
                         </div>
                         <div className="space-y-2">
-                            <p className="text-xl font-bold tracking-tight text-white uppercase animate-in fade-in duration-500" key={loadingStage}>
+                            <p className="text-xl font-bold tracking-tight text-black uppercase animate-in fade-in duration-500" key={loadingStage}>
                                 {stages[loadingStage]}
                             </p>
-                            <p className="text-netflix-muted text-[10px] tracking-[0.3em] font-bold uppercase">Procesamiento IA en curso</p>
+                            <p className="text-fonica-muted text-[10px] tracking-[0.3em] font-bold uppercase">Procesamiento IA en curso</p>
                         </div>
                     </div>
                 ) : (
                     <>
-                        <div className="p-6 bg-netflix-red/10 rounded-full group-hover:scale-110 transition-transform duration-500">
-                            <Upload className="w-10 h-10 text-netflix-red" />
+                        <div className="p-6 bg-fonica-blue/5 rounded-full group-hover:scale-110 transition-transform duration-500">
+                            <Upload className="w-10 h-10 text-fonica-blue" />
                         </div>
                         <div className="space-y-2">
-                            <h3 className="text-2xl font-bold text-white group-hover:text-netflix-red transition-colors">Identifica tu equipo</h3>
-                            <p className="text-netflix-muted text-sm max-w-xs mx-auto leading-relaxed">
-                                Sube una foto de tu amplificador, tornamesa o parlantes. <span className="text-white">La IA reconocerá el modelo al instante.</span>
+                            <h3 className="text-2xl font-bold text-black group-hover:text-fonica-blue transition-colors">Identifica tu equipo</h3>
+                            <p className="text-fonica-muted text-sm max-w-xs mx-auto leading-relaxed">
+                                Sube una foto de tu amplificador, tornamesa o parlantes. <span className="text-black">La IA reconocerá el modelo al instante.</span>
                             </p>
                         </div>
-                        <div className="flex items-center space-x-4 pt-4 text-[9px] font-bold uppercase tracking-[0.2em] text-netflix-muted">
+                        <div className="flex items-center space-x-4 pt-4 text-[9px] font-bold uppercase tracking-[0.2em] text-fonica-muted">
                             <span className="flex items-center space-x-1">
                                 <FileImage className="w-3 h-3" />
                                 <span>Formatos JPG/PNG</span>

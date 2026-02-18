@@ -74,27 +74,27 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
 
     return (
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
-            <div className="absolute inset-0 bg-[#0a0a0a]/95 backdrop-blur-2xl" onClick={onClose}></div>
+            <div className="absolute inset-0 bg-white/40 backdrop-blur-xl" onClick={onClose}></div>
 
-            <div className="relative w-full max-w-lg bg-[#0f0f0f] border border-[#2a2a2a] rounded-[48px] shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-500">
+            <div className="relative w-full max-w-lg bg-white border border-fonica-border rounded-[48px] shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-500">
                 {/* Decorative Top Accent */}
-                <div className="h-1.5 w-full bg-gradient-to-r from-transparent via-netflix-red/40 to-transparent"></div>
+                <div className="h-1.5 w-full bg-gradient-to-r from-transparent via-fonica-blue/40 to-transparent"></div>
 
                 <div className="p-10 sm:p-12 space-y-10">
                     <div className="flex justify-between items-start">
                         <div className="space-y-2">
-                            <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-none uppercase">
-                                {step === "register" && <>Bienvenido a <span className="text-netflix-red tracking-tighter">Fónica</span></>}
-                                {step === "verify" && <>Verifica tu <span className="text-netflix-red tracking-tighter">Acceso</span></>}
-                                {step === "payment" && <>Suscripción <span className="text-netflix-red tracking-tighter">Maestro</span></>}
+                            <h2 className="text-xl sm:text-2xl font-black text-black tracking-tight leading-none uppercase">
+                                {step === "register" && <>Bienvenido a <span className="text-fonica-blue tracking-tighter">Fónica</span></>}
+                                {step === "verify" && <>Verifica tu <span className="text-fonica-blue tracking-tighter">Acceso</span></>}
+                                {step === "payment" && <>Suscripción <span className="text-fonica-blue tracking-tighter">Maestro</span></>}
                             </h2>
-                            <p className="text-white/40 text-[9px] font-bold uppercase tracking-[0.3em]">
+                            <p className="text-fonica-muted text-[9px] font-bold uppercase tracking-[0.3em]">
                                 {step === "register" && "Inteligencia Artificial para Audiofilos"}
                                 {step === "verify" && "Hemos enviado un código a tu correo"}
                                 {step === "payment" && "Acceso Seguro con Tarjeta de Crédito"}
                             </p>
                         </div>
-                        <button onClick={onClose} className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-all text-white/40 hover:text-white">
+                        <button onClick={onClose} className="p-2 bg-fonica-offwhite hover:bg-fonica-border rounded-full transition-all text-fonica-muted hover:text-black">
                             <X className="w-5 h-5" />
                         </button>
                     </div>
@@ -105,16 +105,16 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
                             <div className="space-y-5">
                                 {/* Email */}
                                 <div className="space-y-2">
-                                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 ml-5">Correo Electrónico</label>
+                                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-fonica-muted ml-5">Correo Electrónico</label>
                                     <div className="relative">
-                                        <Mail className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
+                                        <Mail className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-fonica-muted" />
                                         <input
                                             required
                                             type="email"
                                             placeholder="tu@correo.com"
                                             value={formData.email}
                                             onChange={e => setFormData({ ...formData, email: e.target.value })}
-                                            className="w-full bg-[#1a1a1a] border border-white/5 rounded-3xl py-4 pl-14 pr-8 text-white placeholder:text-white/10 focus:outline-none focus:border-netflix-red/30 transition-all font-bold text-sm shadow-inner"
+                                            className="w-full bg-fonica-offwhite border border-fonica-border rounded-3xl py-4 pl-14 pr-8 text-black placeholder:text-fonica-muted focus:outline-none focus:border-fonica-blue/30 transition-all font-bold text-sm shadow-sm"
                                         />
                                     </div>
                                 </div>
@@ -122,32 +122,32 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
                                 <div className="grid grid-cols-2 gap-4">
                                     {/* Country */}
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 ml-5">País</label>
+                                        <label className="text-[10px] font-black uppercase tracking-[0.3em] text-fonica-muted ml-5">País</label>
                                         <div className="relative">
-                                            <Globe className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20 pointer-events-none" />
+                                            <Globe className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-fonica-muted pointer-events-none" />
                                             <select
                                                 value={formData.country}
                                                 onChange={e => setFormData({ ...formData, country: e.target.value })}
-                                                className="w-full bg-[#1a1a1a] border border-white/5 rounded-3xl py-4 pl-14 pr-8 text-white appearance-none focus:outline-none focus:border-netflix-red/30 transition-all font-bold text-sm shadow-inner cursor-pointer"
+                                                className="w-full bg-fonica-offwhite border border-fonica-border rounded-3xl py-4 pl-14 pr-8 text-black appearance-none focus:outline-none focus:border-fonica-blue/30 transition-all font-bold text-sm shadow-sm cursor-pointer"
                                             >
                                                 {countryCodes.map(c => (
-                                                    <option key={c.country} value={c.country} className="bg-[#0f0f0f]">{c.flag} {c.country}</option>
+                                                    <option key={c.country} value={c.country} className="bg-white">{c.flag} {c.country}</option>
                                                 ))}
                                             </select>
                                         </div>
                                     </div>
                                     {/* City */}
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 ml-5">Ciudad</label>
+                                        <label className="text-[10px] font-black uppercase tracking-[0.3em] text-fonica-muted ml-5">Ciudad</label>
                                         <div className="relative">
-                                            <MapPin className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
+                                            <MapPin className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-fonica-muted" />
                                             <input
                                                 required
                                                 type="text"
                                                 placeholder="Ej: Bogotá"
                                                 value={formData.city}
                                                 onChange={e => setFormData({ ...formData, city: e.target.value })}
-                                                className="w-full bg-[#1a1a1a] border border-white/5 rounded-3xl py-4 pl-14 pr-8 text-white placeholder:text-white/10 focus:outline-none focus:border-netflix-red/30 transition-all font-bold text-sm shadow-inner"
+                                                className="w-full bg-fonica-offwhite border border-fonica-border rounded-3xl py-4 pl-14 pr-8 text-black placeholder:text-fonica-muted focus:outline-none focus:border-fonica-blue/30 transition-all font-bold text-sm shadow-sm"
                                             />
                                         </div>
                                     </div>
@@ -155,26 +155,26 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
 
                                 {/* Phone */}
                                 <div className="space-y-2">
-                                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 ml-5">Número Móvil</label>
+                                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-fonica-muted ml-5">Número Móvil</label>
                                     <div className="flex space-x-3">
                                         <select
                                             value={formData.countryCode}
                                             onChange={e => setFormData({ ...formData, countryCode: e.target.value })}
-                                            className="w-24 bg-[#1a1a1a] border border-white/5 rounded-2xl py-2 px-2 text-white text-xs text-center focus:outline-none focus:border-netflix-red/30 transition-all font-black cursor-pointer"
+                                            className="w-24 bg-fonica-offwhite border border-fonica-border rounded-2xl py-2 px-2 text-black text-xs text-center focus:outline-none focus:border-fonica-blue/30 transition-all font-black cursor-pointer"
                                         >
                                             {countryCodes.map(c => (
-                                                <option key={c.code} value={c.code} className="bg-[#0f0f0f]">{c.code}</option>
+                                                <option key={c.code} value={c.code} className="bg-white">{c.code}</option>
                                             ))}
                                         </select>
                                         <div className="relative flex-1">
-                                            <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-3 h-3 text-white/20" />
+                                            <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-3 h-3 text-fonica-muted" />
                                             <input
                                                 required
                                                 type="tel"
                                                 placeholder="300 000 0000"
                                                 value={formData.phone}
                                                 onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                                                className="w-full bg-[#1a1a1a] border border-white/5 rounded-2xl py-4 pl-10 pr-4 text-white placeholder:text-white/10 focus:outline-none focus:border-netflix-red/30 transition-all font-bold text-sm shadow-inner"
+                                                className="w-full bg-fonica-offwhite border border-fonica-border rounded-2xl py-4 pl-10 pr-4 text-black placeholder:text-fonica-muted focus:outline-none focus:border-fonica-blue/30 transition-all font-bold text-sm shadow-sm"
                                             />
                                         </div>
                                     </div>
@@ -184,7 +184,7 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="w-full py-5 bg-netflix-red text-white rounded-[32px] font-black uppercase text-xs tracking-[0.3em] flex items-center justify-center space-x-4 hover:shadow-[0_20px_40px_rgba(229,9,20,0.2)] transition-all disabled:opacity-50"
+                                className="w-full py-5 bg-fonica-blue text-white rounded-[32px] font-black uppercase text-xs tracking-[0.3em] flex items-center justify-center space-x-4 hover:bg-fonica-blue-deep hover:shadow-[0_20px_40px_rgba(0,83,160,0.2)] transition-all disabled:opacity-50"
                             >
                                 {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <span>Inscribirse</span>}
                             </button>
@@ -194,18 +194,18 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
                     {step === "verify" && (
                         <form onSubmit={handleVerifySubmit} className="space-y-8 py-4">
                             <div className="text-center space-y-4">
-                                <div className="w-20 h-20 bg-netflix-red/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <ShieldCheck className="w-10 h-10 text-netflix-red animate-pulse" />
+                                <div className="w-20 h-20 bg-fonica-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <ShieldCheck className="w-10 h-10 text-fonica-blue animate-pulse" />
                                 </div>
-                                <p className="text-white text-sm font-bold leading-relaxed px-4">
+                                <p className="text-black text-sm font-bold leading-relaxed px-4">
                                     Para activar el servicio debe validar su correo.<br />
-                                    <span className="text-white/40 font-medium">Ingrese la clave numerica de 6 dígitos que enviamos.</span>
+                                    <span className="text-fonica-muted font-medium">Ingrese la clave numerica de 6 dígitos que enviamos.</span>
                                 </p>
                             </div>
 
                             <div className="space-y-6">
                                 <div className="relative">
-                                    <Key className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20" />
+                                    <Key className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-fonica-muted" />
                                     <input
                                         required
                                         type="text"
@@ -213,19 +213,19 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
                                         placeholder="0 0 0 0 0 0"
                                         value={otp}
                                         onChange={e => setOtp(e.target.value.replace(/\D/g, ""))}
-                                        className="w-full bg-[#1a1a1a] border border-white/10 rounded-3xl py-6 pl-16 pr-8 text-white text-center text-2xl tracking-[0.5em] font-black placeholder:text-white/5 focus:outline-none focus:border-netflix-red/50 transition-all"
+                                        className="w-full bg-fonica-offwhite border border-fonica-border rounded-3xl py-6 pl-16 pr-8 text-black text-center text-2xl tracking-[0.5em] font-black placeholder:text-fonica-muted/30 focus:outline-none focus:border-fonica-blue/50 transition-all shadow-sm"
                                     />
                                 </div>
 
                                 <button
                                     type="submit"
                                     disabled={isLoading || otp.length < 6}
-                                    className="w-full py-5 bg-white text-black rounded-[32px] font-black uppercase text-xs tracking-[0.3em] flex items-center justify-center space-x-4 transition-all disabled:opacity-50"
+                                    className="w-full py-5 bg-fonica-blue text-white rounded-[32px] font-black uppercase text-xs tracking-[0.3em] flex items-center justify-center space-x-4 transition-all hover:bg-fonica-blue-deep disabled:opacity-50 shadow-md"
                                 >
                                     {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <span>Validar Clave</span>}
                                 </button>
 
-                                <p className="text-center text-[10px] text-white/30 font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors">
+                                <p className="text-center text-[10px] text-fonica-muted font-bold uppercase tracking-widest cursor-pointer hover:text-black transition-colors">
                                     ¿No recibiste nada? Reenviar código
                                 </p>
                             </div>
@@ -234,28 +234,28 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
 
                     {step === "payment" && (
                         <form onSubmit={handlePaymentSubmit} className="space-y-6">
-                            <div className="bg-white/5 border border-white/10 p-6 rounded-[32px] space-y-4">
+                            <div className="bg-fonica-offwhite border border-fonica-border p-6 rounded-[32px] space-y-4">
                                 <div className="flex items-center justify-between mb-2">
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-netflix-red">Resumen de Pago</span>
-                                    <CreditCard className="w-5 h-5 text-white/40" />
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-fonica-blue">Resumen de Pago</span>
+                                    <CreditCard className="w-5 h-5 text-fonica-muted" />
                                 </div>
                                 <div className="flex justify-between items-end">
                                     <div className="space-y-1">
-                                        <p className="text-xl font-bold text-white uppercase">Membresía Maestro</p>
-                                        <p className="text-xs text-white/40">Acceso ilimitado a Fónica IA</p>
+                                        <p className="text-xl font-bold text-black uppercase">Membresía Maestro</p>
+                                        <p className="text-xs text-fonica-muted">Acceso ilimitado a Fónica IA</p>
                                     </div>
-                                    <p className="text-3xl font-black text-white">$3<span className="text-sm font-medium text-white/40">/mes</span></p>
+                                    <p className="text-3xl font-black text-black">$3<span className="text-sm font-medium text-fonica-muted">/mes</span></p>
                                 </div>
                             </div>
 
                             <div className="space-y-4">
                                 <div className="relative">
-                                    <CreditCard className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
+                                    <CreditCard className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-fonica-muted" />
                                     <input
                                         required
                                         type="text"
                                         placeholder="Número de Tarjeta"
-                                        className="w-full bg-[#1a1a1a] border border-white/5 rounded-2xl py-4 pl-14 pr-8 text-white placeholder:text-white/10 focus:outline-none focus:border-netflix-red/30 transition-all font-bold text-sm shadow-inner"
+                                        className="w-full bg-fonica-offwhite border border-fonica-border rounded-2xl py-4 pl-14 pr-8 text-black placeholder:text-fonica-muted focus:outline-none focus:border-fonica-blue/30 transition-all font-bold text-sm shadow-sm"
                                     />
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
@@ -263,14 +263,14 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
                                         required
                                         type="text"
                                         placeholder="MM / YY"
-                                        className="w-full bg-[#1a1a1a] border border-white/5 rounded-2xl py-4 px-6 text-white placeholder:text-white/10 focus:outline-none focus:border-netflix-red/30 transition-all font-bold text-sm shadow-inner text-center"
+                                        className="w-full bg-fonica-offwhite border border-fonica-border rounded-2xl py-4 px-6 text-black placeholder:text-fonica-muted focus:outline-none focus:border-fonica-blue/30 transition-all font-bold text-sm shadow-sm text-center"
                                     />
                                     <input
                                         required
                                         type="text"
                                         maxLength={3}
                                         placeholder="CVV"
-                                        className="w-full bg-[#1a1a1a] border border-white/5 rounded-2xl py-4 px-6 text-white placeholder:text-white/10 focus:outline-none focus:border-netflix-red/30 transition-all font-bold text-sm shadow-inner text-center"
+                                        className="w-full bg-fonica-offwhite border border-fonica-border rounded-2xl py-4 px-6 text-black placeholder:text-fonica-muted focus:outline-none focus:border-fonica-blue/30 transition-all font-bold text-sm shadow-sm text-center"
                                     />
                                 </div>
                             </div>
@@ -278,7 +278,7 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="w-full py-5 bg-netflix-red text-white rounded-[32px] font-black uppercase text-xs tracking-[0.3em] flex items-center justify-center space-x-4 hover:shadow-[0_20px_40px_rgba(229,9,20,0.2)] transition-all disabled:opacity-50 group"
+                                className="w-full py-5 bg-fonica-blue text-white rounded-[32px] font-black uppercase text-xs tracking-[0.3em] flex items-center justify-center space-x-4 hover:bg-fonica-blue-deep hover:shadow-[0_20px_40px_rgba(0,83,160,0.2)] transition-all disabled:opacity-50 group"
                             >
                                 {isLoading ? (
                                     <Loader2 className="w-5 h-5 animate-spin" />
@@ -290,7 +290,7 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
                                 )}
                             </button>
 
-                            <p className="text-[10px] text-center text-white/20 flex items-center justify-center space-x-2">
+                            <p className="text-[10px] text-center text-fonica-muted flex items-center justify-center space-x-2">
                                 <ShieldCheck className="w-3 h-3" />
                                 <span>Pago seguro encriptado // 256-bit SSL</span>
                             </p>
@@ -298,8 +298,8 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
                     )}
                 </div>
 
-                <div className="p-8 bg-[#141414] border-t border-white/5 text-center">
-                    <p className="text-[10px] text-white/20 font-bold uppercase tracking-[0.5em]">Fónica // Audiofilo Experiencia</p>
+                <div className="p-8 bg-fonica-offwhite border-t border-fonica-border text-center">
+                    <p className="text-[10px] text-fonica-muted font-bold uppercase tracking-[0.5em]">Fónica // Audiofilo Experiencia</p>
                 </div>
             </div>
         </div>

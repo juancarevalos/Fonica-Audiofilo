@@ -64,9 +64,9 @@ export default function Home() {
 
 
     return (
-        <main className="min-h-screen bg-netflix-black text-white selection:bg-netflix-red">
-            {/* Global Navigation - Netflix Style */}
-            <nav className="fixed top-0 left-0 right-0 z-[100] netflix-gradient h-20 transition-all duration-300">
+        <main className="min-h-screen bg-white text-black selection:bg-fonica-blue/20">
+            {/* Global Navigation - Clean Light Style */}
+            <nav className="fixed top-0 left-0 right-0 z-[100] fonica-header-gradient border-b border-fonica-border h-20 transition-all duration-300">
                 <div className="max-w-7xl mx-auto px-4 md:px-6 h-full flex items-center justify-between">
                     <div className="flex items-center space-x-3 md:space-x-8">
                         {/* Logo / Home Link */}
@@ -77,7 +77,7 @@ export default function Home() {
                                 setAnalysisData(null);
                             }}
                         >
-                            <span className="text-2xl md:text-3xl font-black text-netflix-red tracking-tighter leading-none uppercase">Fónica</span>
+                            <span className="text-2xl md:text-3xl font-black text-fonica-blue tracking-tighter leading-none uppercase">Fónica</span>
                         </div>
 
                         {/* Navigation Links */}
@@ -94,8 +94,8 @@ export default function Home() {
                                         setAnalysisData(null);
                                     }}
                                     className={clsx(
-                                        "flex flex-col md:flex-row items-center md:space-x-2 transition-all hover:text-netflix-muted",
-                                        activeTab === item.id ? "text-white font-bold" : "text-white/80"
+                                        "flex flex-col md:flex-row items-center md:space-x-2 transition-all hover:text-fonica-blue",
+                                        activeTab === item.id ? "text-fonica-blue font-bold" : "text-fonica-muted"
                                     )}
                                 >
                                     <item.icon className="w-5 h-5 md:w-4 md:h-4 mb-0.5 md:mb-0" />
@@ -110,18 +110,18 @@ export default function Home() {
                             <div className="flex items-center space-x-4">
                                 <button
                                     onClick={() => setShowSettings(true)}
-                                    className="flex items-center space-x-2 text-sm text-white hover:text-netflix-muted transition-colors"
+                                    className="flex items-center space-x-2 text-sm text-black hover:text-fonica-blue transition-colors"
                                 >
                                     <span className="hidden sm:inline">{user.name}</span>
-                                    <div className="w-8 h-8 rounded bg-netflix-red flex items-center justify-center">
-                                        <UserIcon className="w-5 h-5" />
+                                    <div className="w-8 h-8 rounded bg-fonica-blue flex items-center justify-center">
+                                        <UserIcon className="w-5 h-5 text-white" />
                                     </div>
                                 </button>
                             </div>
                         ) : (
                             <button
                                 onClick={() => setShowAuth(true)}
-                                className="px-4 py-1.5 bg-netflix-red text-white text-sm font-bold rounded hover:bg-netflix-red/90 transition-all"
+                                className="px-4 py-1.5 bg-fonica-blue text-white text-sm font-bold rounded hover:bg-fonica-blue-deep transition-all"
                             >
                                 Inscribirse
                             </button>
@@ -134,27 +134,27 @@ export default function Home() {
                 <div className="relative">
                     {activeTab === "advisor" && (
                         <div className="flex flex-col">
-                            {/* Hero Section - Netflix Style */}
+                            {/* Hero Section - Clean Light Style */}
                             <div className="relative h-[40vh] min-h-[300px] w-full overflow-hidden flex items-center pt-24">
                                 {/* Background Image placeholder - Premium Hi-Fi */}
                                 <div className="absolute inset-0 z-0">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-netflix-black via-netflix-black/40 to-transparent z-10" />
-                                    <div className="absolute inset-0 bg-gradient-to-r from-netflix-black via-netflix-black/20 to-transparent z-10" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent z-10" />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent z-10" />
                                     <img
                                         src="https://images.unsplash.com/photo-1545453303-122997921159?q=80&w=2000&auto=format&fit=crop"
                                         alt="Fónica Hero"
-                                        className="w-full h-full object-cover opacity-60"
+                                        className="w-full h-full object-cover opacity-30"
                                     />
                                 </div>
 
                                 <div className="relative z-20 max-w-7xl mx-auto px-6 w-full space-y-4">
                                     <div className="space-y-1">
-                                        <p className="text-[10px] font-black text-netflix-red uppercase tracking-[0.4em]">Hi-Fi Equipment</p>
-                                        <h1 className="text-3xl md:text-4xl font-black tracking-tight max-w-3xl leading-none">
-                                            <span className="text-netflix-red">Fónica</span> - Tu Guía <span className="text-netflix-red">Hi-Fi</span>
+                                        <p className="text-[10px] font-black text-fonica-blue uppercase tracking-[0.4em]">Hi-Fi Equipment</p>
+                                        <h1 className="text-3xl md:text-4xl font-black tracking-tight max-w-3xl leading-none text-black">
+                                            <span className="text-fonica-blue">Fónica</span> - Tu Guía <span className="text-fonica-blue">Hi-Fi</span>
                                         </h1>
                                     </div>
-                                    <p className="text-lg text-netflix-text max-w-xl font-medium opacity-80 leading-relaxed">
+                                    <p className="text-lg text-black max-w-xl font-medium opacity-80 leading-relaxed">
                                         Experiencia audiófila definitiva. Identifica, optimiza y descubre la verdadera alma de tu sistema de sonido.
                                     </p>
                                 </div>
@@ -164,11 +164,11 @@ export default function Home() {
                             <div className="max-w-7xl mx-auto px-6 mt-8 md:mt-12 relative z-30 space-y-16 pb-20 w-full">
                                 {/* Upload/Identificar Section */}
                                 <section id="upload-section" className="space-y-6">
-                                    <h2 className="text-2xl font-bold text-white">Identificar Equipos</h2>
+                                    <h2 className="text-2xl font-bold text-black">Identificar Equipos</h2>
                                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
                                         <div className="lg:col-span-8">
                                             <div className="glass p-8 rounded-lg space-y-6">
-                                                <p className="text-netflix-muted">
+                                                <p className="text-fonica-muted">
                                                     Sube una foto de tu equipo para obtener un análisis técnico detallado,
                                                     incluyendo su firma sonora y valor de mercado.
                                                 </p>
@@ -187,20 +187,20 @@ export default function Home() {
                     {activeTab === "connect" && <SystemConnect />}
                     {activeTab === "archive" && <Archive />}
 
-                    <footer className="mt-40 pb-20 border-t border-netflix-border/50 text-center space-y-6 pt-12">
-                        <div className="flex justify-center space-x-8 text-netflix-muted text-sm font-medium">
-                            <a href="#" className="hover:text-white transition-colors">Audiofilo Pro</a>
-                            <a href="#" className="hover:text-white transition-colors">Soporte Técnico</a>
-                            <a href="#" className="hover:text-white transition-colors">Privacidad</a>
-                            <a href="#" className="hover:text-white transition-colors">Términos de Uso</a>
+                    <footer className="mt-40 pb-20 border-t border-fonica-border text-center space-y-6 pt-12">
+                        <div className="flex justify-center space-x-8 text-fonica-muted text-sm font-medium">
+                            <a href="#" className="hover:text-fonica-blue transition-colors">Audiofilo Pro</a>
+                            <a href="#" className="hover:text-fonica-blue transition-colors">Soporte Técnico</a>
+                            <a href="#" className="hover:text-fonica-blue transition-colors">Privacidad</a>
+                            <a href="#" className="hover:text-fonica-blue transition-colors">Términos de Uso</a>
                         </div>
-                        <p className="text-xs font-medium text-netflix-muted uppercase tracking-[0.4em] opacity-40">
+                        <p className="text-xs font-medium text-fonica-muted uppercase tracking-[0.4em] opacity-40">
                             Fónica Systems // © 2026 EXPERIENCIA AUDIÓFILA PREMIUM
                         </p>
                     </footer>
                 </div>
             ) : (
-                <div className="pt-24 px-6 md:px-12 bg-netflix-black min-h-screen">
+                <div className="pt-24 px-6 md:px-12 bg-white min-h-screen">
                     <Dashboard
                         data={analysisData}
                         onReset={() => {
@@ -212,7 +212,7 @@ export default function Home() {
                 </div>
             )}
 
-            {/* Modals - Netflix style */}
+            {/* Modals */}
             {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
             {showSettings && <SettingsModal onClose={() => setShowSettings(false)} onOpenPremium={() => setShowAuth(true)} />}
 

@@ -4,7 +4,7 @@
 
 /* Markdown Styles for Chat */
 .markdown-content strong {
-  color: #FFD700;
+  color: #0053a0;
   font-weight: 700;
 }
 
@@ -30,7 +30,7 @@
 .markdown-content h1,
 .markdown-content h2,
 .markdown-content h3 {
-  color: #FFD700;
+  color: #0053a0;
   font-weight: 800;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
@@ -48,27 +48,26 @@
 
 .markdown-content th,
 .markdown-content td {
-  border: 1px solid #404040;
+  border: 1px solid #E5E5E5;
   padding: 0.5rem;
   text-align: left;
 }
 
 .markdown-content th {
-  background-color: #333;
-  color: #FFD700;
+  background-color: #F7F7F7;
+  color: #0053a0;
 }
 
 :root {
-  --foreground-rgb: 212, 175, 55;
-  --background-start-rgb: 18, 22, 25;
-  --background-end-rgb: 10, 12, 14;
-  --accent-gold: #D4AF37;
-  --accent-gold-soft: rgba(212, 175, 55, 0.1);
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 247, 247, 247;
+  --accent-blue: #0053a0;
 }
 
 @layer base {
   body {
-    @apply antialiased bg-netflix-black text-netflix-text selection:bg-netflix-red selection:text-white;
+    @apply antialiased bg-white text-black selection:bg-fonica-blue/20 selection:text-fonica-blue;
     min-height: 100vh;
   }
 
@@ -82,42 +81,43 @@
 
 @layer components {
   .glass {
-    @apply bg-black/60 backdrop-blur-xl border border-netflix-border/30 shadow-2xl;
+    @apply bg-white/80 backdrop-blur-xl border border-fonica-border shadow-lg;
   }
 
-  .glass-gold {
-    @apply bg-premium-gold/5 backdrop-blur-xl border border-premium-gold/20 shadow-2xl shadow-premium-gold/5;
+  .glass-blue {
+    @apply bg-fonica-blue/5 backdrop-blur-xl border border-fonica-blue/20 shadow-lg;
   }
 
-  .btn-netflix {
-    @apply px-8 py-2 bg-netflix-red text-white font-bold rounded flex items-center justify-center transition-all duration-300 hover:bg-[#ff1e1e] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  .btn-fonica {
+    @apply px-8 py-2 bg-fonica-blue text-white font-bold rounded flex items-center justify-center transition-all duration-300 hover:bg-fonica-blue-deep active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
   .btn-premium {
-    @apply px-8 py-3 bg-premium-gold text-netflix-black font-black uppercase tracking-[0.2em] text-[10px] rounded transition-all duration-300 active:scale-95 hover:bg-white hover:shadow-[0_0_20px_rgba(255, 215, 0, 0.4)];
+    @apply px-8 py-3 bg-fonica-yellow text-white font-black uppercase tracking-[0.2em] text-[10px] rounded transition-all duration-300 active:scale-95 hover:bg-fonica-yellow/80 hover:shadow-lg;
   }
 
-  .input-netflix {
-    @apply bg-netflix-hover border border-netflix-border text-white px-4 py-3 rounded focus:outline-none focus:border-white transition-all placeholder:text-netflix-muted;
+  .input-fonica {
+    @apply bg-white border border-fonica-border text-black px-4 py-3 rounded focus:outline-none focus:border-fonica-blue transition-all placeholder:text-fonica-muted;
   }
 }
 
-/* Custom Scrollbar (Netflix style) */
+/* Custom Scrollbar (eBay style - clean) */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #141414;
+  background: #F7F7F7;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E50914;
-  border-radius: 4px;
+  background: #E5E5E5;
+  border-radius: 5px;
+  border: 2px solid #F7F7F7;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff1e1e;
+  background: #0053a0;
 }
 
 @keyframes float {
@@ -138,10 +138,11 @@
   animation: float 6s ease-in-out infinite;
 }
 
-.netflix-gradient {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+.fonica-header-gradient {
+  background: linear-gradient(to bottom, #FFFFFF 0%, rgba(255, 255, 255, 0.9) 100%);
+  backdrop-filter: blur(10px);
 }
 
-.card-netflix {
-  @apply transition-transform duration-300 ease-in-out hover:scale-105 hover:z-10 cursor-pointer rounded-lg overflow-hidden;
+.card-fonica {
+  @apply transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl cursor-pointer rounded-lg overflow-hidden border border-fonica-border bg-white;
 }

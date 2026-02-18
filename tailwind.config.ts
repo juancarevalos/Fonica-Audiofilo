@@ -9,20 +9,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'netflix-black': '#141414',
-        'netflix-dark': '#1F1F1F',
-        'netflix-hover': '#2F2F2F',
-        'netflix-red': '#E50914',
-        'premium-gold': '#FFD700',
-        'netflix-text': '#FFFFFF',
-        'netflix-muted': '#B3B3B3',
-        'netflix-border': '#404040',
-        // Keeping old ones for compatibility during transition if needed, but primary focus is Netflix theme
-        'analog-gold': '#FFD700', // Mapping to premium gold
-        'gunmetal-grey': '#141414', // Mapping to netflix black
-        'bronze': '#FFD700',
-        'obsidian': '#141414',
-        'vintage-paper': '#F5E6D3',
+        'fonica-white': '#FFFFFF',
+        'fonica-offwhite': '#F7F7F7',
+        'fonica-blue': '#0053a0',
+        'fonica-blue-deep': '#002D62',
+        'fonica-red': '#e53238',
+        'fonica-yellow': '#f5af02',
+        'fonica-green': '#86b817',
+        'fonica-text': '#000000',
+        'fonica-muted': '#767676',
+        'fonica-border': '#E5E5E5',
+        'premium-gold': '#F5AF02', // Adjusted to eBay yellow
+        // Legacy mappings for quick transition
+        'netflix-black': '#FFFFFF',
+        'netflix-dark': '#F7F7F7',
+        'netflix-hover': '#E5E5E5',
+        'netflix-red': '#0053a0',
+        'netflix-text': '#000000',
+        'netflix-muted': '#767676',
+        'netflix-border': '#E5E5E5',
       },
       fontFamily: {
         sans: ['Inter', 'Roboto', 'sans-serif'],
